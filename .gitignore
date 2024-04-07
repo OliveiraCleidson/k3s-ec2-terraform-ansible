@@ -1,0 +1,10 @@
+k3s-keypair.pem
+k3s-keypair.pub
+hosts.ini
+hosts.yaml
+hosts.yml
+
+terraform.tfstate
+terraform.tfstate.*
+
+.terraform

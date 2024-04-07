@@ -3,6 +3,7 @@ resource "aws_security_group" "master_sg" {
   description = "Security group for K3s cluster"
   vpc_id      = var.vpc_id
 
+  # Allow SSH from the bastion security group
   ingress {
     description     = "SSH"
     from_port       = 22
@@ -50,6 +51,15 @@ resource "aws_security_group" "k3s_worker_sg" {
   name        = local.sg_names["K3sWorker"]
   description = "Security group for K3s worker nodes"
   vpc_id      = var.vpc_id
+
+  # Allow SSH from the bastion security group
+  ingress {
+    description     = "SSH"
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    security_groups = [aws_security_group.bastion_sg.id]
+  }
 
   # Allow all traffic from the master security group
   ingress {
