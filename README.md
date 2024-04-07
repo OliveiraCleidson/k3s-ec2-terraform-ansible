@@ -1,5 +1,7 @@
 # Projeto K3s na AWS
 
+*In development*
+
 Este projeto provisiona um cluster K3s na AWS utilizando Terraform para o provisionamento da infraestrutura e Ansible para a configuração do cluster. O cluster é composto por uma máquina master e uma máquina worker.
 
 ## Estrutura do Projeto
